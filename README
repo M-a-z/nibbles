@@ -1,0 +1,27 @@
+
+You can also create default nibbles.conf configuration file there, where you specify ports to listen, default print filters, UDP log file and so on.
+
+At runtime you can toggle different windows by pressing F2, F3, F4, F5 and F6.
+
+
+
+
+Nibbles supports loading/saving ethernet messages 
+'''''''''''''''''''''''''''''''''''''''''''''''''''
+
+to/from a msgtemplate file. You can save message you specify at runtime and it will be stored to .nibbles folder in your home directory and is loaded at next startup.
+
+
+
+
+Nibbles 1.0-2 supports simplified C define/struct lookup. 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+In order to enable it, please:
+
+create .nibbles folder in your home directory.
+create Interface folder ~/.nibbles and place C headers with definitions in that folder. (Usable when you have structs for messages to be sent over ethernet).
+
+or run ./install.sh and answer to all the questions.
+
+--Enjoy.

@@ -1,0 +1,15 @@
+#ThongsMsgFile 1
+#msg_added_using_thongs
+PL_ENDIANESS:MAINTAIN
+NAME:test_msg                                                    
+DMAC:aa:bb:cc:dd:ee:ff
+SMAC:11:22:33:44:55:66
+ETYPE:0x800
+PAYLOAD:
+u8:0xab:foo
+u8:0xba:foo
+u8:0xb0:foo
+u8:0x0b:foo
+u8:0xba:foo
+u8:0xbe:foo
+DAOLYAP
