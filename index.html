@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<HTML> <HEAD> 
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<META NAME="Author" CONTENT="Matti Vaittinen">
+<META NAME="Description" CONTENT="nibbles - fast, lightweight console UDP print logging/listening/filtering utility">
+<META NAME="Keywords" CONTENT="nibbles, UDP, print, listen, capture, log, filter, highlight, console, ncurses, light, fast">
+<META NAME="Language" CONTENT="EN">
+<META NAME="Abstract" CONTENT="nibbles - fast, lightweight console UDP print logging/listening/filtering utility">
+<META NAME="Designer" CONTENT="Matti Vaittinen">
+<META NAME="Distribution" CONTENT="Global">  
+<META NAME="Robots" CONTENT="All">  
+<!--<LINK REL="SHORTCUT ICON" HREF="http://www.student.oulu.fi/~mavaitti/images/av2.ico"> -->
+<LINK REL="stylesheet" TYPE="text/css" href="style/nibbles.css">   
+<TITLE>nibbles - UDP print listener</TITLE>  
+</HEAD>     
+<body> 
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2999778840133894";
+/* banneri */
+google_ad_slot = "1226030022";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<center><h1 class="header">nibbles - UDP print listener</h1></center>
+<br />
+<h3 class="header2">What is nibbles</h3>
+<p class="normal_chapter">
+
+Nibbles is UDP print listening/filtering/logging utility with ability to generate and send custom ethernet frames. UDP prints are ascii characters sent in UDP packets. This technique is commonly used when generating logs from embedded devices with no screen attached. UDP is a lightweight networking protocol and processing UDP causes only a little overhead thus making it excellent choice for logging protocol. Penalty from small overhead is that UDP does not guarantee delivery - Eg. if for example receiver cannot process packets fast enough, prints are dropped and UDP does not have any resending mechanisms. Thus some packets may get lost. Even if dropping some log lines is usually not as fatal as is dropping some actual data, it is not what developers wish when they have a bug report... This makes it important that log receiver can perform well. This is also why nibbles is written in C to be light and fast.
+
+<h3 class="header2">What nibbles does</h3>
+<p class="normal_chapter">
+Nibbles can be used to:
+<ul>
+<li>Logging prints to file</li>
+<li>Displaying prints on console</li>
+<li>filtering displayed print lines based on keystring lists.</li>
+    <ul>
+        <li>include filters</li>
+        <li>exclude filters</li>
+        <li>highlight filters</li>
+    </ul>
+<li>Ethernet packet crafting and sending</li>
+<li>Storing/Loading crafted packets to text file</li>
+<li>Finding C structures/definitions from header files</li>
+<li>Configuring log file name, port(s) etc to listen from file</li>
+</ul>
+
+<h3 class="header2">How to obtain it</h3>
+<p class="normal_chapter">
+Development version of nibbles is found from <a href="https://github.com/M-a-z/nibbles">github</a>.<br />
+It can also be fetched using git client by issuing command
+<p class="command_example">
+git clone https://github.com/M-a-z/nibbles.git
+<p class="normal_chapter">
+After this you need to compile and (optionally) install nibbles by issuing commands
+<p class="command_example">
+make<br />
+sudo make install<br />
+<p class="normal_chapter">
+in folder where Makefile is located. Note that nibbles needs ncurses library (also form, menu and panel libraries). Typically these are all included in ncurses development library, often called as ncurses-devel. On Fedora you can install it by issuing command
+<p class="command_example">
+sudo yum install ncurses-devel
+<p class="normal_chapter">
+You can also download on of the release tarball(s) if you dislike git or wish to have something a bit more stable than development repository snapshot. Following tarballs are curretly available:
+<p class="tarball_list">
+<a href="https://xp-dev.com/svn/nibbles/tarballs/nibbles_0.2_beta.tgz">nibbles_0.2_beta.tgz</a>.<br />
+
+<h3 class="header2">More information</h3>
+<p class="normal_chapter">
+There is man pages for nibbles included in downloads. After installing nibbles you should be able to read them using command
+<p class="command_example">
+man nibbles
+<p class="normal_chapter">
+or even without installation by switching into man folder included in packet and typing
+<p class="command_example">
+man ./nibbles.8
+<h3 class="header2">Development ideas/needs or just an urge to write C?</h3>
+<p class="normal_chapter">
+Feel free to contact me via email (mazziesaccount@gmail.com) or just fork the project from github, improve nibbles and send me patch(es). I am open to suggestions and glad when receiving bug fixes. Also if you're up to a challenge, then nibbles would really need log rotation feature... There is even command line switches for size and file amount implemented (because old version of nibbles  using fixed ram buffers instead of memory mapped file had this implemented - however that version had performance problems.)
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+<p class="footer">
+Matti 'Maz'  Vaittinen, Oulu, FINLAND email: mazziesaccount@gmail.com
+</body>
+</html>
