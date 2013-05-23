@@ -24,107 +24,104 @@
 
 <PRE>
 <!-- Manpage converted by man2html 3.0.1 -->
-] [
-.B-p 
-.I port
-] [
-.B -f
-.I logfile
-] [
-.B -s
-.I logsize
-] [
-.B -r
-.I fileamount
-] [
-.B -d
-.I debuglog
-] [
-.B -c
-.I configfile
-] 
+SYNOPSIS
+       nibbles [ -vh?  ] [ port ] [ -f logfile ] [ -s logsize ] [ -r fileamount ] [ -d debuglog ] [ -c configfile ]
 
 
 
-.SH DESCRIPTION
-.BR "nibbles" "(8) is a console tool for listening and filtering prints sent over UDP. Nibbles supports filtering print lines based on keystring lists. User can add strings which cause lines including string to be "
-.IR "excluded" ", " "included" " or " "highlighted" ". nibbles can also be used for sending ethernet messages, and to find definitions / structures from include files. Nibbles also allows storing and loading ethernet frames to text file. In order to enable definition finding, you need to create .nibbles folder in your home directory and create Interface folder with headers into it. Nibbles recurses through folders and files in Interface at startup. Nibbles also uses msgtemplate file containing saved ethernet packets from ~/.nibbles folder. You can also place default configuration file in .nibbles folder. see " "RUNTIME COMMANDS" " and -c from " "OPTIONS" ". NOTE: If values are given from command line they will override values from configuration file. If values are not given from configuration file or command line, then hardcoded defaults are used. By default nibbles listens ports 51001, 51003 and 51035. No filters are applied by default." 
- 
 
-.SH OPTIONS
-.TP
-.B -p --port
-UDP port to listen. It is possible to specify multiple ports by giving multiple 
-.B -p 
-options
-.TP
-.B -c --config
-configuration file for default UDP ports and filters. One can specify ports to listen, filters and also udp log file where prints are stored in configuration file. N.I.B.B.L.E.S understands following lines from file:
-
-.RI "port=" "portnumber"
-
-.RI "filter=" "filterstring"
-
-.RI "udplog=" "logname"
-
-.RI "For " "filterstring" " syntax see "
-.BR "FILTER QUEUES" " section below. On linux N.I.B.B.L.E.S searches .nibbles/default.conf from users home directory if no -c option is given. If no config file at all is found, N.I.B.B.L.E.S opens ports 51001, 51003 and 51035 and listens them without any filters."
-.TP
-.B -f --file
-followed by name of UDP log file. Enables logging prints to file. 
-.TP
-.B -s --size
-size of udp log file. After size fills up, nibbles creates new file and continues. New file's name is appended with incrementing number. You need to also specify -f, -s without -f is ignored. (This parameter is ignored by nibbles ultrabra).
-.TP
-
-.SH FILTER QUEUES
-.RI "Nibbles supports setting three types of filter strings. " "exclude" ", " "include" " and " "highlight" ". When filters are set, each received print is searched for strings matching filter. If match is found filtering rule is applied to whole print. Filters are case sensitive. Filters can be cleared by typing "
-.BR "clear" " and pressing enter."
-.TP
-.I exclude filters
-.RB "When print matches exclude filter, it is never displayed. It does not matter if same print matched to highlight or include strings. Strings can be added as exclude filters by typing minus sign " "-" " immediately followed by intended exclude filter string and pressing enter."
-.TP
-.I include filters
-.RB "When first include filter is applied, N.I.B.B.L.E.S stops showing all prints which do not contain at least one include keystring. It does not matter if print matches highlight or exclude filters. Strings can be added as include filters by typing plus sign " "+" " immediately followed by intended include filter string and pressing enter."
-.TP
-.I highlight filters
-.RB "When print line has passed include and exclude rules, it is still searched for highlight keystrings. If print contains highlight string, it is highlighted using colors. This naturally requires that used terminal supports colors. Strings can be added as highlight filters by typing " "!" " immediately followed by intended highlight filter string and pressing enter."
-
-.RI "User can also specify filters as comma separated list. Eg " "-spam,+emails,!important,!Matti" " would add filters to exclude every print not containing word emails, and also exclude every print containing word spam. Prints passing those rules and containing words important or Matti, would be highlighted. NOTE: due to this keywords cannot contain commas."
-
-.SH RUNTIME COMMANDS
-.RB "In addition to setting filters at runtime user can issue commands " "ctrl+p" " to pause screen, buttons from " "F2" " to " "F6" " can be used tp toggle showing of different function screens. " "F2" " displays runtime help screen, " "F3" " enables ethernet packet sender and " "F4" " pops up definition finder to help building ethernet messages. " "F5" " can be used to view installed filter strings. " "F6" " displays a list of packets stored in msgtemplate file." "ESC" " quits program. " "C" " (followed by enter) clears the log window."
-
-.SH FILES
-.I sample.config
-.RS
-Sample configuration file.
-.RE
-.I msgtemplates
-.RS
-Sample file for defining ethernet messages.
-.RE
-.I ~/.nibbles/default.conf
-.RS
-Configuration file sourced by default at startup.
-.RE
-.I ~/.nibbles/msgtemplates
-.RS
-File sourced at startup used for defining ethernet messages.
-.RE
-.I ~/.nibbles/Interface
-.RS
-Folder where C structure typedefs and other definitions are searched at startup.
-.RE
+DESCRIPTION
+       <B>nibbles(8)</B>  is  a console tool for listening and filtering prints sent over UDP. Nibbles supports filtering print lines based on keystring lists. User can add strings which
+       cause lines including string to be excluded, included or highlighted. nibbles can also be used for sending ethernet messages, and to  find  definitions  /  structures  from
+       include  files. Nibbles also allows storing and loading ethernet frames to text file. In order to enable definition finding, you need to create .nibbles folder in your home
+       directory and create Interface folder with headers into it. Nibbles recurses through folders and files in Interface at startup. Nibbles also uses msgtemplate file  contain‐
+       ing saved ethernet packets from ~/.nibbles folder. You can also place default configuration file in .nibbles folder. see RUNTIME COMMANDS and -c from OPTIONS. NOTE: If val‐
+       ues are given from command line they will override values from configuration file. If values are not given from configuration file or command line, then hardcoded  defaults
+       are used. By default nibbles listens ports 51001, 51003 and 51035. No filters are applied by default.
 
 
-.SH BUGS
-Filter keystrings cannot contain commas. Definition finder is pretty limited parser, only able to parse typedefs of certain formats.
-.TP
-Please send all bugs to mazziesaccount@gmail.com
-.SH AUTHOR
-Matti Vaittinen &lt;mazziesaccount@gmail.com&gt;
 
+OPTIONS
+       -p --port
+              UDP port to listen. It is possible to specify multiple ports by giving multiple -p options
+
+       -c --config
+              configuration  file  for default UDP ports and filters. One can specify ports to listen, filters and also udp log file where prints are stored in configuration file.
+              N.I.B.B.L.E.S understands following lines from file:
+
+              port=portnumber
+
+              filter=filterstring
+
+              udplog=logname
+
+              For filterstring syntax see FILTER QUEUES section below. On linux N.I.B.B.L.E.S searches .nibbles/default.conf from users home directory if no -c option is given. If
+              no config file at all is found, N.I.B.B.L.E.S opens ports 51001, 51003 and 51035 and listens them without any filters.
+
+       -f --file
+              followed by name of UDP log file. Enables logging prints to file.
+
+       -s --size
+              size of udp log file. After size fills up, nibbles creates new file and continues. New file's name is appended with incrementing number. You need to also specify -f,
+              -s without -f is ignored. (This parameter is ignored by nibbles ultrabra).
+
+       -r --rotate
+              if nibbles is instructed to create multiple files (see -f and -s), -r can be used to limit the number of kept files. When number of files is written,  nibbles  over‐
+              writes oldest log. -r without -s and -f is ignored. (This parameter is ignored by nibbles ultrabra).
+
+       -d --debug
+              followed by name of debug log file. Enables debug logs (usefull mainly for people interested in tweaking N.I.B.B.L.E.S).
+
+       -v --version
+              display version and exit
+
+       -h --help
+              When first include filter is applied, N.I.B.B.L.E.S stops showing all prints which do not contain at least one include keystring. It does not matter if print matches
+              highlight or exclude filters. Strings can be added as include filters by typing plus sign + immediately followed by  intended  include  filter  string  and  pressing
+              enter.
+
+       highlight filters
+              When print line has passed include and exclude rules, it is still searched for highlight keystrings. If print contains highlight string, it is highlighted using col‐
+              ors. This naturally requires that used terminal supports colors. Strings can be added as highlight filters by typing ! immediately  followed  by  intended  highlight
+              filter string and pressing enter.
+
+              User  can  also  specify filters as comma separated list. Eg -spam,+emails,!important,!Matti would add filters to exclude every print not containing word emails, and
+              also exclude every print containing word spam. Prints passing those rules and containing words important or Matti, would be highlighted. NOTE: due to  this  keywords
+              cannot contain commas.
+
+
+RUNTIME COMMANDS
+       In addition to setting filters at runtime user can issue commands ctrl+p to pause screen, buttons from F2 to F6 can be used tp toggle showing of different function screens.
+       F2 displays runtime help screen, F3 enables ethernet packet sender and F4 pops up definition finder to help building ethernet messages. F5 can be  used  to  view  installed
+       filter strings. F6 displays a list of packets stored in msgtemplate file.ESC quits program. C (followed by enter) clears the log window.
+
+
+FILES
+       sample.config
+              Sample configuration file.
+       msgtemplates
+              Sample file for defining ethernet messages.
+       ~/.nibbles/default.conf
+              Configuration file sourced by default at startup.
+       ~/.nibbles/msgtemplates
+              File sourced at startup used for defining ethernet messages.
+       ~/.nibbles/Interface
+              Folder where C structure typedefs and other definitions are searched at startup.
+
+
+
+BUGS
+       Filter keystrings cannot contain commas. Definition finder is pretty limited parser, only able to parse typedefs of certain formats.
+
+       Please send all bugs to mazziesaccount@gmail.com
+
+AUTHOR
+       Matti Vaittinen &lt;mazziesaccount@gmail.com&gt;
+
+
+
+
+v ultrabra 0.1                                                                   05 September 2012                                                                       <B>nibbles(8)</B>
 </PRE>
 <HR>
 <ADDRESS>
