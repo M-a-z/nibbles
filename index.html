@@ -1,25 +1,12 @@
 ---
-  layout: dummy
+  layout: basic
+  meta_description: nibbles - fast, lightweight console UDP print logging/listening/filtering utility
+  meta_keywords: nibbles, UDP, print, listen, capture, log, filter, highlight, console, ncurses, light, fast
+  css_file: style/nibbles.css
+  title: nibbles - UDP print listener
 ---
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
-<HTML> <HEAD> 
-<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
-<META NAME="Author" CONTENT="Matti Vaittinen">
-<META NAME="Description" CONTENT="nibbles - fast, lightweight console UDP print logging/listening/filtering utility">
-<META NAME="Keywords" CONTENT="nibbles, UDP, print, listen, capture, log, filter, highlight, console, ncurses, light, fast">
-<META NAME="Language" CONTENT="EN">
-<META NAME="Abstract" CONTENT="nibbles - fast, lightweight console UDP print logging/listening/filtering utility">
-<META NAME="Designer" CONTENT="Matti Vaittinen">
-<META NAME="Distribution" CONTENT="Global">  
-<META NAME="Robots" CONTENT="All">  
-<!--<LINK REL="SHORTCUT ICON" HREF="http://www.student.oulu.fi/~mavaitti/images/av2.ico"> -->
-<LINK REL="stylesheet" TYPE="text/css" href="style/nibbles.css">   
-<TITLE>nibbles - UDP print listener</TITLE>  
-{% include google_analytics.html %}
-</HEAD>     
-<body> 
-{% include ad_banner.html %}
-<center><h1 class="header">nibbles - UDP print listener</h1></center>
+
+<h1>nibbles - UDP print listener</h1>
 <br>
 <h3 class="header2">What is nibbles</h3>
 <p class="normal_chapter">
@@ -45,29 +32,25 @@ Nibbles can be used to:
 <li>Configuring log file name, port(s) etc to listen from file</li>
 </ul>
 
-<h3 class="header2">How to obtain it</h3>
+<h3 class="header2">Installation</h3>
 <p class="normal_chapter">
-Development version of nibbles is found from <a href="https://github.com/M-a-z/nibbles">github</a>.<br>
-It can also be fetched using git client by issuing command
-<p class="command_example">
-git clone https://github.com/M-a-z/nibbles.git
-<p class="normal_chapter">
-After this you need to compile and (optionally) install nibbles by issuing commands
+After obtaining nibbles compile and (optionally) install it by issuing commands:
 <p class="command_example">
 make<br>
 sudo make install<br>
 <p class="normal_chapter">
-in folder where Makefile is located. Note that nibbles needs ncurses library (also form, menu and panel libraries). Typically these are all included in ncurses development library, often called as ncurses-devel. On Fedora you can install it by issuing command
+in folder where Makefile is located. Note that nibbles needs ncurses library (also form, menu and panel libraries). Typically these are all included in ncurses development library, often called as ncurses-devel. On Fedora you can install ncurses by issuing command
 <p class="command_example">
 sudo yum install ncurses-devel
-<p class="normal_chapter">
-You can also download on of the release tarball(s) if you dislike git or wish to have something a bit more stable than development repository snapshot. Following tarballs are curretly available:
-<p class="tarball_list">
-<a href="https://xp-dev.com/svn/nibbles/tarballs/nibbles_0.2_beta.tgz">nibbles_0.2_beta.tgz</a>.<br>
+
 
 <h3 class="header2">More information</h3>
 <p class="normal_chapter">
-There is <a href="man/nibbles.8.html">man page for nibbles</a> online and included in downloads. After installing nibbles you should be able to read page using command
+Nibbles provides simple help when ran with --help option.
+<p class="command_example">
+nibbles --help
+<p class="normal_chapter">
+There is <a href="man/nibbles.8.html">man page for nibbles</a> online and included in downloads. You should be able to read page using command
 <p class="command_example">
 man nibbles
 <p class="normal_chapter">
@@ -77,32 +60,3 @@ man ./nibbles.8
 <h3 class="header2">Development ideas/needs or just an urge to write C?</h3>
 <p class="normal_chapter">
 Feel free to contact me via email (mazziesaccount@gmail.com) or just fork the project from github, improve nibbles and send me patch(es). I am open to suggestions and glad when receiving bug fixes. Also if you're up to a challenge, then nibbles would really need log rotation feature... There is even command line switches for size and file amount implemented (because old version of nibbles  using fixed ram buffers instead of memory mapped file had this implemented - however that version had performance problems.)
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-<p class="other_projects">
-See also my other projects:<br>
-<a href="http://m-a-z.github.io/thongs/">thongs - raw ethernet packet sniffer/generator</a> |
-<a href="http://m-a-z.github.io/nsn/">NSN - Network Status Notifier</a> | 
-<a href="http://m-a-z.github.io/epb/">epb - Ethernet Packet Bombardier</a> 
-<p class="footer">
-Matti 'Maz'  Vaittinen, Oulu, FINLAND email: mazziesaccount@gmail.com
-<p>
-<b>Liked this program?</b> <br><i>Donate to help me spend more time developing these =)</i><br>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="K5ULTZQSUMWC2">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
-</form>
- <p>
-    <a href="http://validator.w3.org/check?uri=referer"><img
-      src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
-  </p>
-</body>
-</html>
