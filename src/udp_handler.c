@@ -182,8 +182,9 @@ static int read_bs(udp_handler *_this)
     int i;
     int rcvd;
     int retval=0;
-    char rcvbuff[1500];
+    char rcvbuff[1501];
     time_t tim;
+    rcvbuff[1500]='\0';
 
     for(i=0;i<_this->st.sockamnt;i++)
     {
@@ -218,7 +219,7 @@ rerecv:
                 }
                 timestamp[TIMESTAMPSIZE-1]='\0';
                 timestamp[TIMESTAMPSIZE-2]='\0';
-                for(index=0;index<rcvd;index++)
+                for(index=0;index<=rcvd;index++)
                 {
                     if(index>1 && (rcvbuff[index-1]=='\n' && rcvbuff[index-2]=='\r'))
                     {
