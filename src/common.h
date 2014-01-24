@@ -42,7 +42,7 @@
 //#define debug
 
 #define ALIGN_SIZE 4
-#define VERSION "\n0.2 - ultrabra RC\n (? Y ?)\n  )   ("
+#define VERSION "\n0.3 - RC ultrabra   \n (? Y ?)\n  )   ("
 #define OPTSTRING "d:e:p:f:c:r:s:vh?"
 #define EARLY_DBGPR printf
 /* /altGR + s */
