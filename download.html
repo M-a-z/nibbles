@@ -11,6 +11,7 @@
 <p class="normal_chapter">
 Following stable release tarballs are curretly available:
 <p class="tarball_list">
+<a href="https://github.com/M-a-z/nibbles/releases/tag/v0.2_ultrabra">nibbles_0.2_ultrabra</a>.<br>
 <a href="https://xp-dev.com/svn/nibbles/tarballs/nibbles_0.2_beta.tgz">nibbles_0.2_beta.tgz</a>.<br>
 
 <h3 class="header2">Development release:</h3>
@@ -30,4 +31,18 @@ in folder where Makefile is located. Note that nibbles needs ncurses library (al
 <p class="command_example">
 sudo yum install ncurses-devel
 
-
+<h3>Version History</h3>
+<h4>nibbles 0.2_ultrabra</h4>
+<ul>
+<li>Fixed bug #1 - Prints not ending with \0 not getting displayed</li>
+<li>Other things forgotten long ago</li>
+</ul>
+<h4>nibbles 0.1_ultrabra</h4>
+<ul>
+<li>File based version - use memory mapped files instead of custom 'twin buffer hack'</li>
+<li>log rotate not supported anymore</li>
+</ul>
+<h4>nibbles x.x (not ultrabra</h4>
+<ul>
+<li>Too long list of features and versions - all using two memry buffers to collect and flush prints to file - fast printing might flood buffers</li>
+</ul>
